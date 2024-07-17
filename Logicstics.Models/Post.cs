@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Logistics.Models
 {
-    public class Category
+    public class Post
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        [DisplayName("Category Name")]
+        [DisplayName("Title")]
         [Length(1, 20)]
         public string? Name { get; set; }
 

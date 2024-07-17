@@ -4,19 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LogisticsWeb.Controllers
 {
-    public class CategoryController : Controller
+    public class PostController : Controller
     {
         private ApplicationDbContext _context;
 
-        public CategoryController(ApplicationDbContext context)
+        public PostController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _context.Categories.ToList();
-            return View(objCategoryList);
+            List<Post> objPostList = _context.Posts.ToList();
+            return View(objPostList);
         }
 
         public IActionResult Create()
@@ -25,7 +25,7 @@ namespace LogisticsWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(Post obj)
         {
             //if (obj.Name.ToLower() == obj.DisplayOrder.ToString()) {
             //    ModelState.AddModelError("name", "Name cannot be like as Display Order");
@@ -35,7 +35,7 @@ namespace LogisticsWeb.Controllers
             //    ModelState.AddModelError("", "Test is invalid value");
             //}
             if (ModelState.IsValid) {
-                _context.Categories.Add(obj);
+                _context.Posts.Add(obj);
                 _context.SaveChanges();
                 TempData["success"] = "Categort is created succesfully";
                 return RedirectToAction("Index");
@@ -49,19 +49,19 @@ namespace LogisticsWeb.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDB = _context.Categories.Find(id);
-            if (categoryFromDB == null) { 
+            Post? postFromDB = _context.Posts.Find(id);
+            if (postFromDB == null) { 
                 return NotFound();
             }
-            return View(categoryFromDB);
+            return View(postFromDB);
         }
 
         [HttpPost]
-        public IActionResult Edit(Category obj)
+        public IActionResult Edit(Post obj)
         {
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(obj);
+                _context.Posts.Update(obj);
                 _context.SaveChanges();
                 TempData["success"] = "Categort is updated succesfully";
                 return RedirectToAction("Index");
@@ -75,22 +75,22 @@ namespace LogisticsWeb.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDB = _context.Categories.Find(id);
-            if (categoryFromDB == null)
+            Post? postFromDB = _context.Posts.Find(id);
+            if (postFromDB == null)
             {
                 return NotFound();
             }
-            return View(categoryFromDB);
+            return View(postFromDB);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            Category? category = _context.Categories.Find(id);
-            if (category == null) {
+            Post? post = _context.Posts.Find(id);
+            if (post == null) {
                 return NotFound();
             }
-            _context.Categories.Remove(category);
+            _context.Posts.Remove(post);
             _context.SaveChanges();
             TempData["success"] = "Categort is deleted succesfully";
             return RedirectToAction("Index");
