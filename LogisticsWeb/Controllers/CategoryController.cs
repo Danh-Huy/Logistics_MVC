@@ -1,5 +1,5 @@
-﻿using LogisticsWeb.Data;
-using LogisticsWeb.Models;
+﻿using Logistics.Models;
+using LogisticsWeb.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LogisticsWeb.Controllers
@@ -63,7 +63,7 @@ namespace LogisticsWeb.Controllers
             {
                 _context.Categories.Update(obj);
                 _context.SaveChanges();
-                TempData["success"] = "Categort is edited succesfully";
+                TempData["success"] = "Categort is updated succesfully";
                 return RedirectToAction("Index");
             }
             return View();

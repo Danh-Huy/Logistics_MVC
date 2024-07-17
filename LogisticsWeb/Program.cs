@@ -1,4 +1,4 @@
-using LogisticsWeb.Data;
+using LogisticsWeb.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

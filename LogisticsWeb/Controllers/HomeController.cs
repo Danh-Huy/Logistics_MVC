@@ -1,4 +1,4 @@
-using LogisticsWeb.Models;
+using Logistics.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

@@ -1,4 +1,4 @@
-namespace LogisticsWeb.Models
+namespace Logistics.Models
 {
     public class ErrorViewModel
     {

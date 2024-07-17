@@ -1,7 +1,7 @@
-﻿using LogisticsWeb.Models;
+﻿using Logistics.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LogisticsWeb.Data
+namespace LogisticsWeb.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
