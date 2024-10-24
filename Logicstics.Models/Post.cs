@@ -9,12 +9,14 @@ namespace Logistics.Models
         public int Id { get; set; }
         [Required]
         [DisplayName("Title")]
-        [Length(1, 20)]
-        public string? Name { get; set; }
+        public string? Title { get; set; }
 
-        [Required]
-        [DisplayName("Display Order")]
-        [Range(1, 100, ErrorMessage = "Display Order must be between 1-100")]
-        public int DisplayOrder { get; set; }
+        [DisplayName("Content")]
+        public string? Content { get; set; }
+
+        [DisplayName("Author")]
+        public string? Author { get; set; }
+
+        public List<PostImage> PostImages { get; set; }
     }
 }
