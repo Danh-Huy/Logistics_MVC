@@ -1,21 +1,29 @@
 using Logistics.Models;
+using LogisticsWeb.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace LogisticsWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private ApplicationDbContext _context;
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Post> objPostList = _context.Posts.ToList();
+            return View(objPostList);;
+        }
+
+        public IActionResult Details(int postId)
+        {
+            Post post = _context.Posts.FirstOrDefault(x=> x.Id == postId);
+            return View(post);
         }
 
         public IActionResult Privacy()

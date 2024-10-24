@@ -27,13 +27,6 @@ namespace LogisticsWeb.Controllers
         [HttpPost]
         public IActionResult Create(Post obj)
         {
-            //if (obj.Name.ToLower() == obj.DisplayOrder.ToString()) {
-            //    ModelState.AddModelError("name", "Name cannot be like as Display Order");
-            //}
-            //if (obj.Name.ToLower() == "test")
-            //{
-            //    ModelState.AddModelError("", "Test is invalid value");
-            //}
             if (ModelState.IsValid) {
                 _context.Posts.Add(obj);
                 _context.SaveChanges();
