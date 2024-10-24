@@ -1876,6 +1876,12 @@ button:focus {
     background: #e5fff3;
 }
 
+#contact .contact-img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 /* ==========================================================================
    Footer section
    ========================================================================== */
