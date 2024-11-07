@@ -1,0 +1,33 @@
+﻿@model Post
+
+<div class="container">
+    <form method="post">
+        <input asp-for="Id" hidden />
+        <div class="mt-4">
+            <div class="row pb-2">
+            </div>
+            @* <div asp-validation-summary="All"></div> *@
+            <div class="mb-1">
+                <h2 class="p-0">@Model.Title</h2>
+            </div>
+            <div class="mb-3">
+                <p class="p-0">@Html.Raw(@Model.Content)</p>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <a asp-action="Index" class="btn btn-outline-secondary form-control">
+                        Back To List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}

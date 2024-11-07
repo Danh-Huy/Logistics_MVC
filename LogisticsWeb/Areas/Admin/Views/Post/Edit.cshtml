@@ -1,0 +1,52 @@
+﻿@model Post
+
+<form method="post">
+    <input asp-for="Id" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Edit Post</h2>
+        </div>
+        @* <div asp-validation-summary="All"></div> *@
+        <div class="mb-3 p-1">
+            <label asp-for="Title" class="p-0"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 p-1">
+            <label asp-for="SubTitle" class="p-0"></label>
+            <input asp-for="SubTitle" class="form-control" />
+            <span asp-validation-for="SubTitle" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 p-1">
+            <label asp-for="Content" class="p-0"></label>
+            <textarea asp-for="Content" class="form-control"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-action="Index" class="btn btn-outline-secondary form-control">
+                    Back To List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}

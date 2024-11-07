@@ -1,0 +1,56 @@
+﻿@model List<Post>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-6">
+            <h2 class="text-primary">
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Post" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i>
+                Create New Post
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Content
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.SubTitle</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-6">
+                                    <a asp-controller="Post" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">
+                                        <i class="bi bi-pencil"></i>
+                                        Edit
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a asp-controller="Post" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
