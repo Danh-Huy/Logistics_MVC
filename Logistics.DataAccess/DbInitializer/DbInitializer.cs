@@ -37,7 +37,6 @@ namespace LogisticsWeb.DataAccess.DbInitializer
 
             //create roles if they are not created
             if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult()) {
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
 
 
@@ -47,8 +46,7 @@ namespace LogisticsWeb.DataAccess.DbInitializer
                     Email = "ledanhhuy133@gmail.com",
                     Name = "Huy Le",
                     PhoneNumber = "0889503228",
-                    State = "HCM",
-                    City = "HCM"
+                    EmailConfirmed = true
                 }, "Vansunhuy68@").GetAwaiter().GetResult();
 
 
