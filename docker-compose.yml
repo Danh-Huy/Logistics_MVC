@@ -14,17 +14,6 @@ services:
     networks:
     - productnetwork
     restart: on-failure
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2017-latest
-    environment: 
-      SA_PASSWORD: "abc@123!"
-      ACCEPT_EULA: "Y"
-    ports:
-    - "1433:1433"
-    volumes:
-    - sqlvolume:/var/opt/mssql
-    networks:
-    - productnetwork
 networks:
  productnetwork:
 
