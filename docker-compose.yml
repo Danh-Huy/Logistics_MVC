@@ -11,7 +11,7 @@ services:
     - ASPNETCORE_ENVIROMENT=Development
     networks:
     - productnetwork
-    restart: on-failure
+    restart: always
 networks:
  productnetwork:
 
